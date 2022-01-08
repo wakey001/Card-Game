@@ -5,12 +5,26 @@ class Card:
         self.power = power
         self.weight = weight
         self.top_speed = top_speed
-        self.zero_to_sixty = zero_to_sixty
+        self.zero_to_sixty = zero_to_sixty 
     
-    
+    def get_letters_to_numbers(self,):
+        letters_to_numbers = {
+            'A': 1, 'B': 2, 'C': 3,
+            'D': 4, 'E': 5, 'F': 6,
+            'G': 7, 'H': 8, 'I': 9, 'J': 10
+            }
+        return letters_to_numbers
+
     def show(self):
-        print("Yourcard is a {}".format(self.model))
-   
+        print("Your card is a {}".format(self.model))
+    
+    def get_user_card(self):
+        try:
+            player_hand = input("Enter a number to be given random card: ")
+            while player_hand not in '12345678910':
+                print("Error please enter a number between 1-10")
+                player_hand = input("Enter a number to be given random card: ")
+            return int(player_hand), Card.get_letters_to_numbers()
 
 
 A = Card("Honda civic type R", 320, 1380, 167, 5.6)
@@ -22,6 +36,6 @@ F = Card('Mercedes a45 AMG', 360, 1370, 155, 4.1)
 G = Card('Volkswagon golf R', 300, 1500, 155, 4.7)
 H = Card('BMW 135i M', 306, 1600, 155, 4.5)
 I = Card('Volkswagon golf GTI', 241, 1430, 155, 5.6)
-J = Card('Mini clubman JCW', 302, 1550, 155, 4.6)    
-
+J = Card('Mini clubman JCW', 302, 1550, 155, 4.6) 
+    
 A.show()
